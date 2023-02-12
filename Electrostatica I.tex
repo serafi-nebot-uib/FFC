@@ -1,9 +1,10 @@
 \documentclass{article}
 \title{Eletrostatics}
 \author{Serafí Nebot Ginard}
-\date{2022-2023}
+\date{2023}
 
 \usepackage[parfill]{parskip}
+\usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{tikz}
 
@@ -15,16 +16,76 @@
 \newpage
 
 \section{Punctual loads}
+A punctual load in space will create an electric field $E$ towards all surrounding points in space.
 
-If we place a punctual load in space it will create an electric field towards all
-surrounding points in space. Therefore, any point in space will have an associated vector $\vec{E}$
-describing the magnitude and direction of the electric field produced by the puntual load
+\begin{center}
+	\begin{tikzpicture}
+		\coordinate (P0) at (0, 0);
+		\coordinate (P1) at +(0:1);
+		\coordinate (P2) at +(45:1);
+		\coordinate (P3) at +(90:1);
+		\coordinate (P4) at +(135:1);
+		\coordinate (P5) at +(180:1);
+		\coordinate (P6) at +(225:1);
+		\coordinate (P7) at +(270:1);
+		\coordinate (P8) at +(315:1);
+
+		\filldraw (P0) circle (0.1);
+		\filldraw (P1) circle (0.1);
+		\filldraw (P2) circle (0.1);
+		\filldraw (P3) circle (0.1);
+		\filldraw (P4) circle (0.1);
+		\filldraw (P5) circle (0.1);
+		\filldraw (P6) circle (0.1);
+		\filldraw (P7) circle (0.1);
+		\filldraw (P8) circle (0.1);
+
+		\draw[-, dashed] (P0) -- (P1) node[right] {P1};
+		\draw[-, dashed] (P0) -- (P2) node[above right] {P2};
+		\draw[-, dashed] (P0) -- (P3) node[above] {P3};
+		\draw[-, dashed] (P0) -- (P4) node[above left] {P5};
+		\draw[-, dashed] (P0) -- (P5) node[left] {P6};
+		\draw[-, dashed] (P0) -- (P6) node[below left] {P6};
+		\draw[-, dashed] (P0) -- (P7) node[below] {P7};
+		\draw[-, dashed] (P0) -- (P8) node[below right] {P8};
+	\end{tikzpicture}
+\end{center}
+
+An electric field can be calculated using the following forluma:
 \[
-	\vec{E} = \frac{1}{4\pi \epsilon_0}\frac{q}{r^2}r
+	{E} = k_e\frac{q}{r^2}
 \]
-where $\epsilon_0$ is the vacuum permittivity, $q$ the punctual load, $r$ the distance between the
-punctual load and the reference point, and $\hat{r}$ a unit vector indicating the direction
-of the electric field towards the reference point.
+where $q$ is the reference punctual load in Newtons ($N$), $r$ the distance between the punctual point and the
+reference point in meters ($m$), and $k_e$ is the Coulomb's constant
+\[
+	k_e = \frac{1}{4 \pi \epsilon_0}
+\]
+where $\epsilon_0$ is the Vacumm permittivity.
+
+Also, electric fields have an associated vector
+\[
+	\vec{E} = \frac{1}{4 \pi \epsilon_0} \frac{q}{r^2}\hat{r} \\
+\]
+where $\hat{r}$ is a unit vector indicating the direction of the electric field.
+
+For example:
+\begin{center}
+	\begin{tikzpicture}
+		\coordinate (P0) at (0, 0);
+		\coordinate (P1) at (2, 2);
+
+		\filldraw (P0) circle (0.1);
+		\filldraw (P1) circle (0.1);
+
+		\draw[->, thick] (-1, 0) -- (3, 0) node[right] {$x$};
+		\draw[->, thick] (0, -1) -- (0, 3) node[above] {$y$};
+		\draw[-, dashed] (P0) node[below right] {$P0$} -- node[above left] {$r$} (P1) node[right] {$P1$};
+	\end{tikzpicture}
+\end{center}
+the electric field $E_{P0,P1}$ created by the punctual load $P0$ on $P1$ may be calculated
+\[
+	E_{P0,P1} = \frac{1}{4 \pi \epsilon_0} \frac{P0}{r^2}\hat{r}
+\]
 
 Vectors of an electric field produced by a \emph{positive} punctual load will point outwards. Vectors of an electric field produced by a \emph{negative} punctual load will point inwards.
 
@@ -109,6 +170,13 @@ Vectors of an electric field produced by a \emph{positive} punctual load will po
 		\draw (0, 0) node {$-$};
 	\end{tikzpicture}
 \end{figure}
+
+A punctual load will produce a potential $V$ to all surrounding points in space. Therefore, all
+points will have an associated scalar, positive when the load is positive and negative when the load
+is negative
+\[
+	V = \frac{1}{4\pi \epsilon_0}\frac{q}{r}
+\]
 
 \end{document}
 \usepackage{amsmath}
