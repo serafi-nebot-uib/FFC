@@ -68,68 +68,6 @@ Also, electric fields have an associated vector
 \]
 where $\hat{r}$ is a unit vector indicating the direction of the electric field.
 
-A punctual load also produces a force to all surrounding points in space. The force of an electric
-field can be described as
-\[
-	F = q_2 E
-\]
-which expands to
-\[
-	F = q_2 \frac{1}{4 \pi \epsilon_0} \frac{q_1}{r^2}
-\]
-where $q_1$ is the punctual load at origin and $q_2$ is the reference punctual.
-
-Additionally, like electric fields, a force can also have an associated vector
-\[
-	\vec{F} = q_2 \frac{1}{4 \pi \epsilon_0} \frac{q_1}{r^2}\hat{r}
-\]
-
-\pagebreak
-For example:
-\begin{center}
-	\begin{tikzpicture}
-		\coordinate (P0) at (0, 0);
-		\coordinate (E0) at +(270:2);
-
-		\filldraw (P0) circle (0.1);
-
-		\draw[->, thick] (-1, 0) -- (3, 0) node[right] {$x$};
-		\draw[->, thick] (0, -1) -- (0, 3) node[above] {$y$};
-		\draw[->, dashed, thick] (P0) circle (2);
-		\draw[-, dashed, thick] (P0) node[below right] {$P0$} -- node[above] {$r$} +(45:2);
-		\node at +(270:2.25) {$E_0$};
-	\end{tikzpicture}
-\end{center}
-the electric field $E_0$ created by the punctual load $p_0$ may be calculated
-\[
-	E_0 = \frac{1}{4 \pi \epsilon_0} \frac{p_0}{r^2}
-\]
-likewise, a vector may be associated to the electric field to indicate a direction
-\begin{center}
-	\begin{tikzpicture}
-		\coordinate (P0) at (0, 0);
-		\coordinate (P1) at +(45:2);
-
-		\filldraw (P0) circle (0.1) node[below right] {$P0$};
-		\filldraw (P1) circle (0.1) node[above right] {$P1$};
-
-		\draw[->, thick] (-1, 0) -- (3, 0) node[right] {$x$};
-		\draw[->, thick] (0, -1) -- (0, 3) node[above] {$y$};
-		\draw[->, dashed, thick] (P0) circle (2);
-		\draw[-, dashed, thick] (P0) -- (P1);
-		\draw[->, very thick] (P0) -- node[above] {$\hat{r}$} +(45:1);
-		\node at +(270:2.25) {$E_0$};
-	\end{tikzpicture}
-\end{center}
-so the electric field vector $\vec{E}_{0 \to 1}$ may be calculated
-\[
-	\vec{E}_{0 \to 1} = \frac{1}{4 \pi \epsilon_0} \frac{p_0}{r^2}\hat{r}
-\]
-and the force created by $P0$ on $P1$
-\[
-	\vec{F}_{0 \to 1} = p_1 \frac{1}{4 \pi \epsilon_0} \frac{p_0}{r^2}\hat{r}
-\]
-
 Vectors of an electric field produced by a \emph{positive} punctual load will point outwards. Vectors of an electric field produced by a \emph{negative} punctual load will point inwards.
 
 \begin{figure}[ht]
@@ -214,11 +152,74 @@ Vectors of an electric field produced by a \emph{positive} punctual load will po
 	\end{tikzpicture}
 \end{figure}
 
-A punctual load will produce a potential $V$ to all surrounding points in space. Therefore, all
+
+A punctual load also produces a force to all surrounding points in space. The force of an electric
+field can be described as
+\[
+	F = q_2 E
+\]
+which expands to
+\[
+	F = q_2 \frac{1}{4 \pi \epsilon_0} \frac{q_1}{r^2}
+\]
+where $q_1$ is the punctual load at origin and $q_2$ is the reference punctual.
+
+Additionally, like electric fields, a force can also have an associated vector
+\[
+	\vec{F} = q_2 \frac{1}{4 \pi \epsilon_0} \frac{q_1}{r^2}\hat{r}
+\]
+
+A punctual load produces a potential $V$ to all surrounding points in space. Therefore, all
 points will have an associated scalar, positive when the load is positive and negative when the load
 is negative
 \[
 	V = \frac{1}{4\pi \epsilon_0}\frac{q}{r}
+\]
+
+\pagebreak
+For example:
+\begin{center}
+	\begin{tikzpicture}
+		\coordinate (P0) at (0, 0);
+		\coordinate (E0) at +(270:2);
+
+		\filldraw (P0) circle (0.1);
+
+		\draw[->, thick] (-1, 0) -- (3, 0) node[right] {$x$};
+		\draw[->, thick] (0, -1) -- (0, 3) node[above] {$y$};
+		\draw[->, dashed, thick] (P0) circle (2);
+		\draw[-, dashed, thick] (P0) node[below right] {$P0$} -- node[above] {$r$} +(45:2);
+		\node at +(270:2.25) {$E_0$};
+	\end{tikzpicture}
+\end{center}
+the electric field $E_0$ created by the punctual load $P0$ may be calculated
+\[
+	E_0 = \frac{1}{4 \pi \epsilon_0} \frac{p_0}{r^2}
+\]
+likewise, a vector may be associated to the electric field to indicate a direction
+\begin{center}
+	\begin{tikzpicture}
+		\coordinate (P0) at (0, 0);
+		\coordinate (P1) at +(45:2);
+
+		\filldraw (P0) circle (0.1) node[below right] {$P0$};
+		\filldraw (P1) circle (0.1) node[above right] {$P1$};
+
+		\draw[->, thick] (-1, 0) -- (3, 0) node[right] {$x$};
+		\draw[->, thick] (0, -1) -- (0, 3) node[above] {$y$};
+		\draw[->, dashed, thick] (P0) circle (2);
+		\draw[-, dashed, thick] (P0) -- (P1);
+		\draw[->, very thick] (P0) -- node[above] {$\hat{r}$} +(45:1);
+		\node at +(270:2.25) {$E_0$};
+	\end{tikzpicture}
+\end{center}
+so the electric field vector $\vec{E}_{0 \to 1}$ may be calculated
+\[
+	\vec{E}_{0 \to 1} = \frac{1}{4 \pi \epsilon_0} \frac{p_0}{r^2}\hat{r}
+\]
+and the force created by $P0$ on $P1$
+\[
+	\vec{F}_{0 \to 1} = p_1 \frac{1}{4 \pi \epsilon_0} \frac{p_0}{r^2}\hat{r}
 \]
 
 \end{document}
